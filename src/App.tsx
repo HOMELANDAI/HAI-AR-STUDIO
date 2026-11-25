@@ -8,7 +8,10 @@ const initial = PRESETS.verse as HelmetPreset
 
 export default function App() {
   const [preset, setPreset] = useState<HelmetPreset>(() => loadDraft() ?? initial)
-  const [activePreset, setActivePreset] = useState<PresetId>('verse')
+  const [activePreset, setActivePreset] = useState<PresetId>(() => {
+    const draft = loadDraft()
+    return draft && draft.id in PRESETS ? draft.id as PresetId : 'verse'
+  })
   const [tab, setTab] = useState<Tab>('effects')
   const [notice, setNotice] = useState('')
 
