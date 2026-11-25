@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment, OrbitControls, Sparkles, Text } from '@react-three/drei'
+import { OrbitControls, Sparkles, Text } from '@react-three/drei'
 import { useRef } from 'react'
 import type { Group } from 'three'
 import type { HelmetPreset } from '../../domain/presets'
@@ -76,7 +76,6 @@ export function HelmetScene({ preset }: { preset: HelmetPreset }) {
       <ambientLight intensity={1.5} />
       <directionalLight position={[3, 4, 5]} intensity={3.2} color="#e2f5ff" />
       <directionalLight position={[-4, 0, -3]} intensity={2.8} color={preset.accent} />
-      <Environment preset="city" />
       <Helmet preset={preset} />
       <Sparkles count={24} size={2.2} color={preset.accent} opacity={0.4} speed={0.3} scale={[4, 3, 3]} />
       <OrbitControls enablePan={false} minDistance={3.4} maxDistance={7.2} autoRotate={false} />
